@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333333;
+  background-color: #f4f6fb;
+}
+
+/* Grid container with named areas */
+.magazine {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "header  header"
+    "nav     nav"
+    "article sidebar"
+    "footer  footer";
+  gap: 15px;
+  max-width: 1100px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/* Assign each section to its named area */
+.mag-header {
+  grid-area: header;
+  padding: 25px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #1a3c6e;
+  border-radius: 8px;
+}
+
+.mag-header h1 {
+  margin: 0 0 5px 0;
+}
+
+.mag-header p {
+  margin: 0;
+}
+
+.mag-nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background-color: #dbe7f7;
+  border-radius: 8px;
+}
+
+.mag-nav a {
+  padding: 8px 16px;
+  color: #1a3c6e;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.mag-nav a:hover {
+  background-color: #1a3c6e;
+  color: #ffffff;
+}
+
+.mag-article {
+  grid-area: article;
+  padding: 25px;
+  line-height: 1.7;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+.mag-article h2 {
+  margin-top: 0;
+  color: #1a3c6e;
+}
+
+.byline {
+  font-style: italic;
+  color: #777777;
+}
+
+.mag-sidebar {
+  grid-area: sidebar;
+  align-self: start;
+  padding: 20px;
+  background-color: #fff3cd;
+  border: 1px solid #e6c85c;
+  border-radius: 8px;
+}
+
+.mag-sidebar h3 {
+  margin-top: 0;
+  color: #1a3c6e;
+}
+
+.mag-sidebar ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.mag-footer {
+  grid-area: footer;
+  padding: 15px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #12294d;
+  border-radius: 8px;
+}
+
+.mag-footer p {
+  margin: 0;
+}
+
+/* Mobile: one column, sidebar goes under the article */
+@media (max-width: 700px) {
+  .magazine {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "article"
+      "sidebar"
+      "footer";
+  }
+}
